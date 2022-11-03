@@ -1,0 +1,103 @@
+div.rm-spinner-wrapper {
+  position: relative;
+}
+
+div.rm-spinner-wrapper p {
+  position: absolute;
+  margin-top: 110px;
+  margin-left: 46%;
+  margin-right: 40%;
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: 200;
+  color: #c1c1c1;
+  letter-spacing: 0.5;
+}
+
+div.rm-spinner {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  /*
+  margin-left: 50%;
+  margin-right: 50%;
+  */
+  background: transparent;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+div.rm-spinner.rm-spinner-md {
+  width: 20px;
+  height: 20px;
+}
+
+div.rm-spinner div {
+  width: 6%;
+  height: 16%;
+  background: #8C8C8C;
+  position: absolute;
+  left: 49%;
+  top: 43%;
+  opacity: 0;
+  -webkit-border-radius: 50px;
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  -webkit-animation: fade 1s linear infinite;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 1;}
+  to {opacity: 0.25;}
+}
+
+div.rm-spinner div.rm-spinner-bar-1 {
+  -webkit-transform:rotate(0deg) translate(0, -130%);
+  -webkit-animation-delay: 0s;
+}    
+
+div.rm-spinner div.rm-spinner-bar-2 {
+  -webkit-transform:rotate(30deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.9167s;
+}
+
+div.rm-spinner div.rm-spinner-bar-3 {
+  -webkit-transform:rotate(60deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.833s;
+}
+div.rm-spinner div.rm-spinner-bar-4 {
+  -webkit-transform:rotate(90deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.7497s;
+}
+div.rm-spinner div.rm-spinner-bar-5 {
+  -webkit-transform:rotate(120deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.667s;
+}
+div.rm-spinner div.rm-spinner-bar-6 {
+  -webkit-transform:rotate(150deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.5837s;
+}
+div.rm-spinner div.rm-spinner-bar-7 {
+  -webkit-transform:rotate(180deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.5s;
+}
+div.rm-spinner div.rm-spinner-bar-8 {
+  -webkit-transform:rotate(210deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.4167s;
+}
+div.rm-spinner div.rm-spinner-bar-9 {
+  -webkit-transform:rotate(240deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.333s;
+}
+div.rm-spinner div.rm-spinner-bar-10 {
+  -webkit-transform:rotate(270deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.2497s;
+}
+div.rm-spinner div.rm-spinner-bar-11 {
+  -webkit-transform:rotate(300deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.167s;
+}
+div.rm-spinner div.rm-spinner-bar-12 {
+  -webkit-transform:rotate(330deg) translate(0, -130%); 
+  -webkit-animation-delay: -0.0833s;
+}
