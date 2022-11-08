@@ -201,7 +201,7 @@ header {
 #jumbotron-left{
 }
 #jumbotron-left p,
-#jumbotron-left button,
+#jumbotron-left .btn,
 #jumbotron-left ul{
 	margin: 10px 0;
 }
