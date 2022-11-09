@@ -26,14 +26,39 @@
 
     </head>
     <body data-theme="dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+          <a class="navbar-brand" href="https://snoozetabs.com">
+            <img src="img/logo/logo.png" width="30" height="30" class="d-inline-block align-top m-r-10" alt="Snooze Tabs">
+            Snooze Tabs
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#download">Download</a>
+                </li>
+            </ul>
+          </div>
+        </nav>
+
         <div class="container">
             <div id="jumbotron">
                 <div class="row">
-                    <div class="col-md-5 d-flex" >
+                    <div class="col-md-12 col-lg-5 d-flex" >
                         <div id="jumbotron-left" class="justify-content-center align-self-center">
                             <h1>Snooze tabs, windows and todos for later</h1>
                             <p>
-                                Dismiss tabs that you don’t want now, and set an alarm to bring them back when you need them. 
+                                Snooze tabs that you don’t want now, and set an alarm to bring them back when you need them. 
                             </p>    
 
                             <a href="https://ryzalyusoff.gumroad.com/l/snoozetabs-pro" target="_blank" class="btn btn-md btn-primary btn-flat">
@@ -44,25 +69,247 @@
                             <ul>
                                 <li>
                                     <a href="https://chrome.google.com/webstore/detail/snooze-tabs/dcgnmgccfgdhakmcaidcfjmmkjngjbih" target="_blank">
-                                        <img src="img/svg/chrome.svg" class="chrome-logo">
+                                        <img src="img/svg/chrome.svg" class="chrome-logo" alt="Download Snooze Tabs for Chrome">
                                     </a>    
                                 </li>    
                                 <li>
                                     <a href="https://addons.mozilla.org/en-GB/firefox/addon/the-snooze-tabs" target="_blank">
-                                        <img src="img/svg/firefox.svg" class="firefox-logo">
+                                        <img src="img/svg/firefox.svg" class="firefox-logo" alt="Download Snooze Tabs for Firefox">
                                     </a>    
                                 </li>  
                             </ul>    
                         </div>
                     </div>  
-                    <div class="col-md-7">
+                    <div class="col-lg-7">
                         <div id="jumbotron-right">
-                            <img src="img/jpg/jumbotron-image.jpg">
+                            <img src="img/jpg/jumbotron-image-2.jpg" alt="Snooze Tabs" class="d-none d-sm-block">
                         </div>
                     </div>   
-                </div>   
+                </div>    
             </div> 
+
+            <center id="features" class="section m-t-50i">
+                <h2>Features</h2>
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/preset-times.png" alt="Snooze Tabs or Windows">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Snooze current or all tabs</h3>
+                            </div>    
+                        </div>    
+                    </div>  
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/preset-times.png" alt="Preset Times" style="object-position: 0% 80%;">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Present times</h3>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/sleeping-tabs.png" alt="Sleeping Tabs">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>See all snoozed tabs</h3>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/themes.png" alt="Sleeping Tabs">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Select light or dark theme</h3>
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/custom-date-and-time.png" alt="Custom date & time" style="object-position: 0% 55%;">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Custom date and time</h3>
+                            </div>    
+                        </div>    
+                    </div>  
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/recurring-snooze-2.png" alt="Recurring snooze" style="object-position: 0% 13%;">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Recurring snooze</h3>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/keyboard-shortcuts.png" alt="Keyboard shortcuts" style="object-position: 0% 5%;">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Keyboard shortcuts</h3>
+                            </div> 
+                        </div> 
+                    </div>  
+                     <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/notifications.png" alt="Notifications" style="object-position: 90% 9%;">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Notifications</h3>
+                            </div> 
+                        </div> 
+                    </div>  
+                </div>
+
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/todos-tab.png" alt="Todos tab" style="object-position: 35% -10%">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Todos tab</h3>
+                            </div>    
+                        </div>    
+                    </div>  
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/workspaces.png" alt="Workspaces" style="object-position: 0% 9%;">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Workspaces</h3>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/group-tabs-title.png" alt="Group tabs title">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Group tabs title</h3>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-6 col-md-3">
+                        <div class="feature-tile">
+                            <div class="feature-tile-media">
+                                <img src="img/png/sync-and-backup.png" alt="Sync and backup" style="object-position: 0% 23%;">
+                            </div>
+                            <div class="feature-tile-desc">
+                                <h3>Cloud sync and backup</h3>
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </center>
+
+            <center id="pricing" class="section">
+                <h2>Pricing</h2>
+                <div id="pricing-tiles" class="row">
+                    <div class="col-md-6">
+                        <div class="pricing-tile pricing-tile-free">
+                            <h3>Free</h3>
+                            <div class="price">
+                                $0
+                            </div> 
+                            <p>
+                                Free
+                            </p> 
+                            <ul>
+                                <li><img src="img/svg/ok.svg"> <div>Preset times</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Custom date and time</div></li>
+                                <li><img src="img/svg/ok.svg"> <div>Snooze one or all tabs</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Keyboard shortcuts</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Light & Dark theme</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Group tabs title</div> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6"> 
+                        <div class="pricing-tile pricing-tile-pro">
+                            <h3>Pro</h3>
+                            <div class="price">
+                                $15
+                            </div> 
+                            <p>
+                                Pay once. Enjoy forever
+                            </p>   
+                            <ul>
+                                <li><img src="img/svg/ok.svg"> <div>All free features</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Unlimited snooze</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Sync and backup</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Todos tab to snooze</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Notification sound</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Recurring snooze</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Auto-group tabs</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Snooze history</div> </li>
+                                <li><img src="img/svg/ok.svg"> <div>Workspaces</div> </li>
+                            </ul>
+
+                            <a href="https://ryzalyusoff.gumroad.com/l/snoozetabs-pro" target="_blank" class="btn btn-md btn-primary btn-flat">
+                                Buy Pro <i class="fas fa-chevron-right m-l-5"></i>
+                            </a>
+                        </div>  
+                    </div>  
+                </div>
+            </center> 
+
+            <center id="download" class="section">
+                <h2>Download</h2>
+                <ul>
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/snooze-tabs/dcgnmgccfgdhakmcaidcfjmmkjngjbih" target="_blank">
+                            <img src="img/svg/chrome.svg" class="chrome-logo m-r-10" alt="Download Snooze Tabs for Chrome"> Chrome extension
+                        </a>    
+                    </li>    
+                    <li>
+                        <a href="https://addons.mozilla.org/en-GB/firefox/addon/the-snooze-tabs" target="_blank">
+                            <img src="img/svg/firefox.svg" class="firefox-logo m-r-10" alt="Download Snooze Tabs for Firefox"> Firefox extension
+                        </a>    
+                    </li>  
+                </ul> 
+            </center> 
         </div>
+
+        <footer>
+            <ul>
+                <li>
+                    <a href="privacy.html">Privacy</a>
+                </li>  
+                <li>
+                    &middot;
+                </li>  
+                <li>
+                    <a href="https://airtable.com/shrwP2UjuYHieBVCU" target="_blank">Help</a>
+                </li> 
+                <li>
+                    &middot;
+                </li>  
+                <li>
+                    <a href="#">Twitter</a>
+                </li> 
+            </ul> 
+            <div class="m-t-10">
+                &copy; 2022 <span class="m-l-5 m-r-5">&middot;</span> <span>snoozetabs.com</span> by <a href="https://readermode.io" target="_blank"><b>Reader Mode</b></a>   
+            </div>
+        </footer>    
 
         <script src="index.js"></script>  
     </body>
