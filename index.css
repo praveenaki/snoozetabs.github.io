@@ -210,7 +210,7 @@ nav ul li a{
 }
 #jumbotron-left ul li{
 	display: inline;
-	margin-right: 7px;
+	margin-right: 10px;
 	list-style-type: none;
 }
 #jumbotron-left ul li img.chrome-logo{
@@ -289,6 +289,7 @@ nav ul li a{
 	border: 2px solid var(--color-primary);
 	box-shadow: rgb(253 114 0 / 25%) 0 20px 80px, rgb(42 245 152 / 10%) 0 20px 40px;
 }
+
 .pricing-tile ul {
 	width: 210px;
 	margin: 30px auto;
@@ -301,6 +302,9 @@ nav ul li a{
 	display: inline-block;
 	list-style-type: none;
 	opacity: 0.7;
+}
+.pricing-tile.pricing-tile-pro li {
+	opacity: 1;
 }
 .pricing-tile ul li img,
 .pricing-tile ul  li div{
