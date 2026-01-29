@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - Snooze Tabs</title>
+    <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #f59e0b;
+            --accent-hover: #fbbf24;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .quick-start {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .quick-start h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .quick-start ol {
+            margin-left: 1.5rem;
+        }
+
+        .quick-start li {
+            margin-bottom: 0.75rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg);
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+
+        .use-case-list {
+            list-style: none;
+        }
+
+        .use-case-list li {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .use-case-list a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: border-color 0.2s;
+        }
+
+        .use-case-list a:hover {
+            border-color: var(--accent);
+        }
+
+        .use-case-list strong {
+            color: var(--accent);
+        }
+
+        .use-case-list span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../" class="back-link">&larr; Back to Snooze Tabs</a>
+            <h1>Snooze Tabs User Guide</h1>
+            <p class="tagline">Master tab management: snooze tabs for later, save articles to read, build daily routines.</p>
+        </header>
+
+        <div class="quick-start">
+            <h2>Quick Start</h2>
+            <ol>
+                <li><strong>Click the Snooze Tabs icon</strong> in your browser toolbar</li>
+                <li><strong>Pick when you want the tab back</strong> - Click a preset (Tomorrow, This Evening, etc.) or "Pick a date & time"</li>
+                <li><strong>Your tab closes</strong> and reappears automatically when the time comes</li>
+            </ol>
+        </div>
+
+        <section>
+            <h2>Features</h2>
+            <div class="card-grid">
+                <a href="features/presets.md" class="card">
+                    <h3>Quick Snooze Presets</h3>
+                    <p>One-click snoozing with 7 preset times: Later Today, This Evening, Tomorrow, and more.</p>
+                </a>
+                <a href="features/save-for-later.md" class="card">
+                    <h3>Save for Later</h3>
+                    <p>Bookmark tabs without a schedule. Perfect for reference docs you access on-demand.</p>
+                </a>
+                <a href="features/custom-picker.md" class="card">
+                    <h3>Custom Date & Time</h3>
+                    <p>Schedule tabs for any specific date and time when presets don't fit.</p>
+                </a>
+                <a href="features/keyboard-shortcuts.md" class="card">
+                    <h3>Keyboard Shortcuts</h3>
+                    <p>Snooze tabs without opening the popup. Alt+Shift+T for tomorrow, and more.</p>
+                </a>
+                <a href="features/recurring.md" class="card">
+                    <h3>Recurring Snoozes <span class="badge">PRO</span></h3>
+                    <p>Create snoozes that repeat daily, weekly, monthly, or yearly.</p>
+                </a>
+                <a href="features/workspaces.md" class="card">
+                    <h3>Workspaces <span class="badge">PRO</span></h3>
+                    <p>Organize snoozes into named categories like Work, Personal, Learning.</p>
+                </a>
+                <a href="features/sync.md" class="card">
+                    <h3>Google Drive Sync <span class="badge">PRO</span></h3>
+                    <p>Back up and sync your snoozes across devices using Google Drive.</p>
+                </a>
+                <a href="features/settings.md" class="card">
+                    <h3>Settings</h3>
+                    <p>Customize preset times, notifications, grace periods, and more.</p>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Use Cases</h2>
+            <ul class="use-case-list">
+                <li>
+                    <a href="use-cases/tab-overwhelm.md">
+                        <strong>Tab Overwhelm</strong><br>
+                        <span>"I have 50 tabs open and can't think" - Clear the clutter in seconds</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="use-cases/research-mode.md">
+                        <strong>Research Mode</strong><br>
+                        <span>"I keep finding articles but never read them" - Manage research tabs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="use-cases/daily-routines.md">
+                        <strong>Daily Routines</strong><br>
+                        <span>"I need the same pages every morning" - Set up recurring schedules</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="use-cases/project-organization.md">
+                        <strong>Project Organization</strong><br>
+                        <span>"Work and personal tabs are mixed up" - Use workspaces to organize</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Flow Diagrams</h2>
+            <div class="card-grid">
+                <a href="flows/quick-snooze.md" class="card">
+                    <h3>Quick Snooze Flow</h3>
+                    <p>How preset button snoozing works</p>
+                </a>
+                <a href="flows/custom-snooze.md" class="card">
+                    <h3>Custom Snooze Flow</h3>
+                    <p>Date/time picker workflow</p>
+                </a>
+                <a href="flows/wake-snooze.md" class="card">
+                    <h3>Wake Snooze Flow</h3>
+                    <p>How tabs return when scheduled</p>
+                </a>
+                <a href="flows/save-for-later.md" class="card">
+                    <h3>Save for Later Flow</h3>
+                    <p>Manual save workflow</p>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>
+                <a href="https://snoozetabs.com">snoozetabs.com</a> &bull;
+                <a href="mailto:support@snoozetabs.com">support@snoozetabs.com</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
