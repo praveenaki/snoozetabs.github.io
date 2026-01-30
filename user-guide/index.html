@@ -5,317 +5,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Guide - Snooze Tabs</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
+    <!-- Docsify theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.min.css">
     <style>
         :root {
-            --bg: #0f172a;
-            --bg-card: #1e293b;
-            --text: #e2e8f0;
-            --text-muted: #94a3b8;
-            --accent: #f59e0b;
-            --accent-hover: #fbbf24;
-            --border: #334155;
+            /* Match snoozetabs.com color scheme */
+            --base-background-color: #0f172a;
+            --sidebar-background: #1e293b;
+            --cover-background-color: #0f172a;
+
+            /* Text colors */
+            --base-color: #e2e8f0;
+            --heading-color: #f8fafc;
+            --sidebar-nav-link-color: #94a3b8;
+            --sidebar-nav-link-color--active: #f59e0b;
+            --sidebar-nav-link-color--hover: #fbbf24;
+
+            /* Accent color - amber/orange */
+            --theme-color: #f59e0b;
+            --link-color: #f59e0b;
+            --link-color--hover: #fbbf24;
+
+            /* Code blocks */
+            --code-theme-background: #1e293b;
+            --code-theme-text: #e2e8f0;
+            --code-inline-background: #334155;
+            --code-inline-color: #fbbf24;
+
+            /* Borders */
+            --sidebar-border-color: #334155;
+            --sidebar-nav-link-border-color--active: #f59e0b;
+
+            /* Table */
+            --table-head-background: #1e293b;
+            --table-row-odd-background: #0f172a;
+            --table-row-even-background: #1e293b;
+
+            /* Blockquote */
+            --blockquote-border-color: #f59e0b;
+            --blockquote-background: #1e293b;
+
+            /* Notice/Alert boxes */
+            --notice-tip-border-color: #22c55e;
+            --notice-important-border-color: #f59e0b;
+
+            /* Sidebar width */
+            --sidebar-width: 280px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            text-align: center;
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-        }
-
-        .back-link {
-            display: inline-block;
-            color: var(--accent);
-            text-decoration: none;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .back-link:hover {
-            color: var(--accent-hover);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .tagline {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-        }
-
-        .quick-start {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--border);
-        }
-
-        .quick-start h2 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .quick-start ol {
-            margin-left: 1.5rem;
-        }
-
-        .quick-start li {
-            margin-bottom: 0.75rem;
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+        /* Custom header styling */
+        .markdown-section h1 {
+            border-bottom: 2px solid var(--theme-color);
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent);
         }
 
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
+        /* Back link to main site */
+        .app-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            z-index: 100;
         }
 
-        .card {
-            background: var(--bg-card);
-            border-radius: 8px;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
+        .app-nav a {
+            color: var(--theme-color);
             text-decoration: none;
-            color: var(--text);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-        }
-
-        .card h3 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
             font-size: 0.9rem;
         }
 
-        .badge {
+        .app-nav a:hover {
+            color: var(--link-color--hover);
+        }
+
+        /* PRO badge styling */
+        .pro-badge {
             display: inline-block;
-            background: var(--accent);
-            color: var(--bg);
+            background: var(--theme-color);
+            color: #0f172a;
             font-size: 0.7rem;
             padding: 0.15rem 0.5rem;
             border-radius: 4px;
             margin-left: 0.5rem;
             font-weight: 600;
+            vertical-align: middle;
         }
 
-        .use-case-list {
-            list-style: none;
+        /* Table styling improvements */
+        .markdown-section table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
         }
 
-        .use-case-list li {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+        .markdown-section table th,
+        .markdown-section table td {
+            border: 1px solid #334155;
+            padding: 0.75rem 1rem;
+        }
+
+        .markdown-section table th {
+            background: #1e293b;
+            font-weight: 600;
+        }
+
+        /* Image styling */
+        .markdown-section img {
             border-radius: 8px;
-            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            max-width: 100%;
         }
 
-        .use-case-list a {
-            display: block;
-            padding: 1rem 1.5rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: border-color 0.2s;
+        /* Keyboard shortcut styling */
+        .markdown-section code {
+            background: #334155;
+            color: #fbbf24;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
         }
 
-        .use-case-list a:hover {
-            border-color: var(--accent);
+        /* Sidebar logo/title area */
+        .sidebar .app-name-link {
+            color: var(--theme-color) !important;
+            font-weight: 700;
         }
 
-        .use-case-list strong {
-            color: var(--accent);
-        }
-
-        .use-case-list span {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 1rem;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .card-grid {
-                grid-template-columns: 1fr;
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .app-nav {
+                position: static;
+                padding: 0.5rem 1rem;
+                text-align: right;
+                background: var(--sidebar-background);
+                border-bottom: 1px solid var(--sidebar-border-color);
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="../" class="back-link">&larr; Back to Snooze Tabs</a>
-            <h1>Snooze Tabs User Guide</h1>
-            <p class="tagline">Master tab management: snooze tabs for later, save articles to read, build daily routines.</p>
-        </header>
+    <nav class="app-nav">
+        <a href="../">&larr; Back to Snooze Tabs</a>
+    </nav>
 
-        <div class="quick-start">
-            <h2>Quick Start</h2>
-            <ol>
-                <li><strong>Click the Snooze Tabs icon</strong> in your browser toolbar</li>
-                <li><strong>Pick when you want the tab back</strong> - Click a preset (Tomorrow, This Evening, etc.) or "Pick a date & time"</li>
-                <li><strong>Your tab closes</strong> and reappears automatically when the time comes</li>
-            </ol>
-        </div>
+    <div id="app">Loading...</div>
 
-        <section>
-            <h2>Features</h2>
-            <div class="card-grid">
-                <a href="features/presets.md" class="card">
-                    <h3>Quick Snooze Presets</h3>
-                    <p>One-click snoozing with 7 preset times: Later Today, This Evening, Tomorrow, and more.</p>
-                </a>
-                <a href="features/save-for-later.md" class="card">
-                    <h3>Save for Later</h3>
-                    <p>Bookmark tabs without a schedule. Perfect for reference docs you access on-demand.</p>
-                </a>
-                <a href="features/custom-picker.md" class="card">
-                    <h3>Custom Date & Time</h3>
-                    <p>Schedule tabs for any specific date and time when presets don't fit.</p>
-                </a>
-                <a href="features/keyboard-shortcuts.md" class="card">
-                    <h3>Keyboard Shortcuts</h3>
-                    <p>Snooze tabs without opening the popup. Alt+Shift+T for tomorrow, and more.</p>
-                </a>
-                <a href="features/recurring.md" class="card">
-                    <h3>Recurring Snoozes <span class="badge">PRO</span></h3>
-                    <p>Create snoozes that repeat daily, weekly, monthly, or yearly.</p>
-                </a>
-                <a href="features/workspaces.md" class="card">
-                    <h3>Workspaces <span class="badge">PRO</span></h3>
-                    <p>Organize snoozes into named categories like Work, Personal, Learning.</p>
-                </a>
-                <a href="features/sync.md" class="card">
-                    <h3>Google Drive Sync <span class="badge">PRO</span></h3>
-                    <p>Back up and sync your snoozes across devices using Google Drive.</p>
-                </a>
-                <a href="features/settings.md" class="card">
-                    <h3>Settings</h3>
-                    <p>Customize preset times, notifications, grace periods, and more.</p>
-                </a>
-            </div>
-        </section>
+    <script>
+        window.$docsify = {
+            name: 'Snooze Tabs',
+            nameLink: '../',
+            repo: '',
+            loadSidebar: true,
+            subMaxLevel: 2,
+            auto2top: true,
+            homepage: 'README.md',
+            relativePath: true,
 
-        <section>
-            <h2>Use Cases</h2>
-            <ul class="use-case-list">
-                <li>
-                    <a href="use-cases/tab-overwhelm.md">
-                        <strong>Tab Overwhelm</strong><br>
-                        <span>"I have 50 tabs open and can't think" - Clear the clutter in seconds</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="use-cases/research-mode.md">
-                        <strong>Research Mode</strong><br>
-                        <span>"I keep finding articles but never read them" - Manage research tabs</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="use-cases/daily-routines.md">
-                        <strong>Daily Routines</strong><br>
-                        <span>"I need the same pages every morning" - Set up recurring schedules</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="use-cases/project-organization.md">
-                        <strong>Project Organization</strong><br>
-                        <span>"Work and personal tabs are mixed up" - Use workspaces to organize</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
+            // Search plugin config
+            search: {
+                placeholder: 'Search docs...',
+                noData: 'No results found',
+                depth: 3
+            },
 
-        <section>
-            <h2>Flow Diagrams</h2>
-            <div class="card-grid">
-                <a href="flows/quick-snooze.md" class="card">
-                    <h3>Quick Snooze Flow</h3>
-                    <p>How preset button snoozing works</p>
-                </a>
-                <a href="flows/custom-snooze.md" class="card">
-                    <h3>Custom Snooze Flow</h3>
-                    <p>Date/time picker workflow</p>
-                </a>
-                <a href="flows/wake-snooze.md" class="card">
-                    <h3>Wake Snooze Flow</h3>
-                    <p>How tabs return when scheduled</p>
-                </a>
-                <a href="flows/save-for-later.md" class="card">
-                    <h3>Save for Later Flow</h3>
-                    <p>Manual save workflow</p>
-                </a>
-            </div>
-        </section>
+            // Copy code button
+            copyCode: {
+                buttonText: 'Copy',
+                successText: 'Copied!'
+            }
+        };
+    </script>
 
-        <footer>
-            <p>
-                <a href="https://snoozetabs.com">snoozetabs.com</a> &bull;
-                <a href="mailto:support@snoozetabs.com">support@snoozetabs.com</a>
-            </p>
-        </footer>
-    </div>
+    <!-- Docsify core -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+
+    <!-- Mermaid for flow diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#f59e0b',
+                primaryTextColor: '#0f172a',
+                primaryBorderColor: '#fbbf24',
+                lineColor: '#94a3b8',
+                secondaryColor: '#1e293b',
+                tertiaryColor: '#334155'
+            }
+        });
+
+        // Render mermaid diagrams after page load
+        window.$docsify.plugins = [].concat(
+            function(hook) {
+                hook.afterEach(function(html) {
+                    return html.replace(/<pre><code class="lang-mermaid">([\s\S]*?)<\/code><\/pre>/g,
+                        '<div class="mermaid">$1</div>');
+                });
+                hook.doneEach(function() {
+                    mermaid.run();
+                });
+            },
+            window.$docsify.plugins || []
+        );
+    </script>
 </body>
 </html>
