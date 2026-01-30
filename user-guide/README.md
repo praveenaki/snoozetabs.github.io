@@ -6,8 +6,8 @@
 
 1. **Click the Snooze Tabs icon** in your browser toolbar
 2. **Pick when you want the tab back**:
-  - Click a preset button (Tomorrow, This Evening, etc.)
-  - Or click "Pick a date & time" for custom scheduling
+   - Click a preset button (Tomorrow, This Evening, etc.)
+   - Or click "Pick a date & time" for custom scheduling
 3. **Your tab closes** and reappears when the time comes
 
 That's it! Your tab will automatically open when scheduled.
@@ -18,11 +18,11 @@ That's it! Your tab will automatically open when scheduled.
 
 | I want to... | Use this feature | Time to learn |
 | --- | --- | --- |
-| Close a tab and get it back tomorrow | [presets.md](./features/presets.md) | 30 seconds |
-| Save an article to read "someday" | [save-for-later.md](./features/save-for-later.md) | 1 minute |
-| Open my standup page every morning | [recurring.md](./features/recurring.md) | 2 minutes |
-| Separate work tabs from personal | [workspaces.md](./features/workspaces.md) | 2 minutes |
-| Access snoozes on another computer | [sync.md](./features/sync.md) | 2 minutes |
+| Close a tab and get it back tomorrow | [Quick Snooze Presets](features/presets.md) | 30 seconds |
+| Save an article to read "someday" | [Save for Later](features/save-for-later.md) | 1 minute |
+| Open my standup page every morning | [Recurring Snoozes](features/recurring.md) | 2 minutes |
+| Separate work tabs from personal | [Workspaces](features/workspaces.md) | 2 minutes |
+| Access snoozes on another computer | [Google Drive Sync](features/sync.md) | 2 minutes |
 
 ---
 
@@ -30,17 +30,17 @@ That's it! Your tab will automatically open when scheduled.
 
 ### Core Features (Free)
 
-- [presets.md](./features/presets.md) - One-click snoozing with 7 preset times
-- [custom-picker.md](./features/custom-picker.md) - Schedule tabs for any specific moment
-- [save-for-later.md](./features/save-for-later.md) - Bookmark tabs without a schedule
-- [keyboard-shortcuts.md](./features/keyboard-shortcuts.md) - Snooze without opening the popup
-- [settings.md](./features/settings.md) - Customize times, notifications, and more
+- [Quick Snooze Presets](features/presets.md) - One-click snoozing with 7 preset times
+- [Custom Date & Time](features/custom-picker.md) - Schedule tabs for any specific moment
+- [Save for Later](features/save-for-later.md) - Bookmark tabs without a schedule
+- [Keyboard Shortcuts](features/keyboard-shortcuts.md) - Snooze without opening the popup
+- [Settings](features/settings.md) - Customize times, notifications, and more
 
 ### PRO Features
 
-- [recurring.md](./features/recurring.md) - Daily, weekly, monthly, yearly schedules
-- [workspaces.md](./features/workspaces.md) - Organize snoozes into categories
-- [sync.md](./features/sync.md) - Cross-device backup and sync
+- [Recurring Snoozes](features/recurring.md) - Daily, weekly, monthly, yearly schedules
+- [Workspaces](features/workspaces.md) - Organize snoozes into categories
+- [Google Drive Sync](features/sync.md) - Cross-device backup and sync
 
 ---
 
@@ -50,10 +50,10 @@ Real-world scenarios with step-by-step guides:
 
 | Scenario | Description |
 | --- | --- |
-| [tab-overwhelm.md](./use-cases/tab-overwhelm.md) | "I have 50 tabs open and can't think" |
-| [research-mode.md](./use-cases/research-mode.md) | "I keep finding articles but never read them" |
-| [daily-routines.md](./use-cases/daily-routines.md) | "I need the same pages every morning" |
-| [project-organization.md](./use-cases/project-organization.md) | "Work and personal tabs are mixed up" |
+| [Tab Overwhelm](use-cases/tab-overwhelm.md) | "I have 50 tabs open and can't think" |
+| [Research Mode](use-cases/research-mode.md) | "I keep finding articles but never read them" |
+| [Daily Routines](use-cases/daily-routines.md) | "I need the same pages every morning" |
+| [Project Organization](use-cases/project-organization.md) | "Work and personal tabs are mixed up" |
 
 ---
 
@@ -123,30 +123,3 @@ A: Locally in Chrome storage. With PRO, sync to Google Drive.
 
 - **Website:** [snoozetabs.com](https://snoozetabs.com)
 - **Email:** support@snoozetabs.com
-
----
-
-## Documentation Structure
-
-```
-user-guide/
-├── README.md              ← You are here
-├── features/
-│   ├── presets.md         - Quick snooze presets
-│   ├── save-for-later.md  - Save without schedule
-│   ├── custom-picker.md   - Custom date & time
-│   ├── recurring.md       - Recurring snoozes (PRO)
-│   ├── workspaces.md      - Organization (PRO)
-│   ├── sync.md            - Google Drive sync (PRO)
-│   ├── keyboard-shortcuts.md
-│   └── settings.md
-├── use-cases/
-│   ├── tab-overwhelm.md   - Clear tab clutter
-│   ├── research-mode.md   - Manage research tabs
-│   ├── daily-routines.md  - Recurring schedules
-│   └── project-organization.md - Workspaces
-├── flows/
-│   └── *.md               - Mermaid flow diagrams
-└── assets/
-    └── screenshots/       - UI screenshots
-```
