@@ -131,6 +131,14 @@
             font-weight: 700;
         }
 
+        /* Mermaid diagram styling */
+        .mermaid {
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
         /* Mobile responsive */
         @media (max-width: 768px) {
             .app-nav {
@@ -150,7 +158,25 @@
 
     <div id="app">Loading...</div>
 
+    <!-- Mermaid must load BEFORE Docsify -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#f59e0b',
+                primaryTextColor: '#0f172a',
+                primaryBorderColor: '#fbbf24',
+                lineColor: '#94a3b8',
+                secondaryColor: '#1e293b',
+                tertiaryColor: '#334155'
+            }
+        });
+    </script>
+
+    <script>
+        // Define Docsify config with plugins BEFORE loading Docsify
         window.$docsify = {
             name: 'Snooze Tabs',
             nameLink: '../',
@@ -172,48 +198,37 @@
             copyCode: {
                 buttonText: 'Copy',
                 successText: 'Copied!'
-            }
+            },
+
+            // Mermaid plugin - defined BEFORE Docsify loads
+            plugins: [
+                function(hook, vm) {
+                    hook.afterEach(function(html) {
+                        // Handle both lang-mermaid and language-mermaid class patterns
+                        return html
+                            .replace(/<pre[^>]*><code[^>]*class="[^"]*lang-mermaid[^"]*"[^>]*>([\s\S]*?)<\/code><\/pre>/gi,
+                                '<div class="mermaid">$1</div>')
+                            .replace(/<pre[^>]*><code[^>]*class="[^"]*language-mermaid[^"]*"[^>]*>([\s\S]*?)<\/code><\/pre>/gi,
+                                '<div class="mermaid">$1</div>');
+                    });
+                    hook.doneEach(function() {
+                        // Re-render mermaid diagrams after each page load
+                        mermaid.run({
+                            querySelector: '.mermaid'
+                        });
+                    });
+                }
+            ]
         };
     </script>
 
-    <!-- Docsify core -->
+    <!-- Docsify core - loads AFTER config is defined -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
 
-    <!-- Plugins -->
+    <!-- Additional plugins -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
-
-    <!-- Mermaid for flow diagrams -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <script>
-        mermaid.initialize({
-            startOnLoad: false,
-            theme: 'dark',
-            themeVariables: {
-                primaryColor: '#f59e0b',
-                primaryTextColor: '#0f172a',
-                primaryBorderColor: '#fbbf24',
-                lineColor: '#94a3b8',
-                secondaryColor: '#1e293b',
-                tertiaryColor: '#334155'
-            }
-        });
-
-        // Render mermaid diagrams after page load
-        window.$docsify.plugins = [].concat(
-            function(hook) {
-                hook.afterEach(function(html) {
-                    return html.replace(/<pre><code class="lang-mermaid">([\s\S]*?)<\/code><\/pre>/g,
-                        '<div class="mermaid">$1</div>');
-                });
-                hook.doneEach(function() {
-                    mermaid.run();
-                });
-            },
-            window.$docsify.plugins || []
-        );
-    </script>
 </body>
 </html>
