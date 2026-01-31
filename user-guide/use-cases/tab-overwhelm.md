@@ -74,15 +74,15 @@ Switch to the **Sleeping** tab to see all your scheduled snoozes, sorted by wake
 
 ```mermaid
 flowchart TD
-    A[😫 Too many tabs open] --> B[Click Snooze Tabs icon]
+    A[Too many tabs open!] --> B[Click Snooze Tabs icon]
     B --> C[See current tab preview]
     C --> D{When do I need this?}
 
-    D -->|Tonight| E[Click "This Evening"]
-    D -->|Tomorrow| F[Click "Tomorrow"]
-    D -->|Weekend| G[Click "This Weekend"]
-    D -->|Reference doc| H[Click "Save for Later"]
-    D -->|Specific time| I[Click "Pick a date"]
+    D -->|Tonight| E["This Evening"]
+    D -->|Tomorrow| F["Tomorrow"]
+    D -->|Weekend| G["This Weekend"]
+    D -->|Reference doc| H["Save for Later"]
+    D -->|Specific time| I["Pick a date"]
 
     E --> J[Tab closes instantly]
     F --> J
@@ -93,7 +93,7 @@ flowchart TD
     J --> M{More tabs to process?}
     K --> M
     M -->|Yes| C
-    M -->|No| N[😌 Focus restored]
+    M -->|No| N[Focus restored!]
 
     N --> O[Tabs return automatically when scheduled]
 ```
@@ -107,24 +107,24 @@ flowchart TD
     Q[Look at this tab] --> A{What type of content?}
 
     A -->|News / Daily read| B{Check daily?}
-    B -->|Yes| C[⏰ Tomorrow<br/>e.g., Hacker News]
-    B -->|Occasionally| D[📅 This Weekend<br/>e.g., DEV Community]
+    B -->|Yes| C["TOMORROW preset"]
+    B -->|Occasionally| D["THIS WEEKEND preset"]
 
     A -->|Guide / Tutorial| E{Will read once?}
-    E -->|Yes| F[📅 Tomorrow or Weekend<br/>e.g., MDN Guide]
-    E -->|Reference material| G[🔖 Save for Later<br/>e.g., TypeScript Handbook]
+    E -->|Yes| F["TOMORROW or WEEKEND"]
+    E -->|Reference material| G["SAVE FOR LATER"]
 
     A -->|Reference docs| G
 
     A -->|Time-sensitive| H{When needed?}
-    H -->|Today| I[🌙 This Evening]
-    H -->|This week| J[📆 Next Week]
+    H -->|Today| I["THIS EVENING preset"]
+    H -->|This week| J["NEXT WEEK preset"]
 
-    style C fill:#fef3c7
-    style D fill:#dbeafe
-    style F fill:#dcfce7
-    style G fill:#e5e7eb
-    style I fill:#f3e8ff
+    style C fill:#fef3c7,color:#000
+    style D fill:#dbeafe,color:#000
+    style F fill:#dcfce7,color:#000
+    style G fill:#e5e7eb,color:#000
+    style I fill:#f3e8ff,color:#000
 ```
 
 ---

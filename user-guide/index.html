@@ -132,11 +132,115 @@
         }
 
         /* Mermaid diagram styling */
-        .mermaid {
+        .mermaid-wrapper {
+            position: relative;
             background: #1e293b;
             padding: 1rem;
             border-radius: 8px;
             margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .mermaid {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .mermaid:hover {
+            opacity: 0.9;
+        }
+
+        /* Zoom hint */
+        .mermaid-wrapper::after {
+            content: '🔍 Click to zoom';
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.75rem;
+            font-size: 0.75rem;
+            color: #64748b;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .mermaid-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        /* Mermaid zoom modal */
+        .mermaid-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .mermaid-modal.active {
+            display: flex;
+        }
+
+        .mermaid-modal-content {
+            max-width: 95vw;
+            max-height: 95vh;
+            overflow: auto;
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .mermaid-modal-content svg {
+            max-width: none !important;
+            height: auto !important;
+        }
+
+        .mermaid-modal-controls {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10001;
+        }
+
+        .mermaid-modal-controls button {
+            background: #334155;
+            color: #e2e8f0;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s ease;
+        }
+
+        .mermaid-modal-controls button:hover {
+            background: #475569;
+        }
+
+        .mermaid-modal-close {
+            position: fixed;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .mermaid-modal-close:hover {
+            color: #f8fafc;
         }
 
         /* Mobile responsive */
@@ -175,7 +279,61 @@
         });
     </script>
 
+    <!-- Mermaid zoom modal -->
+    <div class="mermaid-modal" id="mermaidModal">
+        <button class="mermaid-modal-close" onclick="closeMermaidModal()">&times;</button>
+        <div class="mermaid-modal-content" id="mermaidModalContent"></div>
+        <div class="mermaid-modal-controls">
+            <button onclick="zoomMermaid(-0.2)">− Zoom Out</button>
+            <button onclick="zoomMermaid(0)">Reset</button>
+            <button onclick="zoomMermaid(0.2)">+ Zoom In</button>
+        </div>
+    </div>
+
     <script>
+        // Mermaid zoom functionality
+        let currentZoom = 1;
+
+        function decodeHtmlEntities(text) {
+            const textarea = document.createElement('textarea');
+            textarea.innerHTML = text;
+            return textarea.value;
+        }
+
+        function openMermaidModal(element) {
+            const modal = document.getElementById('mermaidModal');
+            const content = document.getElementById('mermaidModalContent');
+            content.innerHTML = element.innerHTML;
+            currentZoom = 1;
+            content.style.transform = 'scale(1)';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMermaidModal() {
+            const modal = document.getElementById('mermaidModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function zoomMermaid(delta) {
+            const content = document.getElementById('mermaidModalContent');
+            if (delta === 0) {
+                currentZoom = 1;
+            } else {
+                currentZoom = Math.max(0.5, Math.min(3, currentZoom + delta));
+            }
+            content.style.transform = `scale(${currentZoom})`;
+        }
+
+        // Close modal on escape or click outside
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMermaidModal();
+        });
+        document.getElementById('mermaidModal').addEventListener('click', function(e) {
+            if (e.target === this) closeMermaidModal();
+        });
+
         // Define Docsify config with plugins BEFORE loading Docsify
         window.$docsify = {
             name: 'Snooze Tabs',
@@ -205,16 +363,28 @@
                 function(hook, vm) {
                     hook.afterEach(function(html) {
                         // Handle both lang-mermaid and language-mermaid class patterns
+                        // Decode HTML entities so Mermaid can parse arrows like --> correctly
                         return html
                             .replace(/<pre[^>]*><code[^>]*class="[^"]*lang-mermaid[^"]*"[^>]*>([\s\S]*?)<\/code><\/pre>/gi,
-                                '<div class="mermaid">$1</div>')
+                                function(match, code) {
+                                    const decoded = decodeHtmlEntities(code);
+                                    return '<div class="mermaid-wrapper"><div class="mermaid">' + decoded + '</div></div>';
+                                })
                             .replace(/<pre[^>]*><code[^>]*class="[^"]*language-mermaid[^"]*"[^>]*>([\s\S]*?)<\/code><\/pre>/gi,
-                                '<div class="mermaid">$1</div>');
+                                function(match, code) {
+                                    const decoded = decodeHtmlEntities(code);
+                                    return '<div class="mermaid-wrapper"><div class="mermaid">' + decoded + '</div></div>';
+                                });
                     });
                     hook.doneEach(function() {
                         // Re-render mermaid diagrams after each page load
                         mermaid.run({
                             querySelector: '.mermaid'
+                        }).then(function() {
+                            // Add click handlers for zoom
+                            document.querySelectorAll('.mermaid').forEach(function(el) {
+                                el.onclick = function() { openMermaidModal(this); };
+                            });
                         });
                     });
                 }
