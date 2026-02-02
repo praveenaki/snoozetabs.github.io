@@ -6,6 +6,53 @@
         <link rel="stylesheet" type="text/css" href="index.css" media="all">
         <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
 
+        <style>
+            /* Animated rotating word in hero header */
+            .rotating-word-container {
+                display: inline-block;
+                overflow: hidden;
+                vertical-align: bottom;
+                margin-right: 0.25em; /* Add space after each rotating word */
+            }
+
+            .rotating-word {
+                display: inline-block;
+                position: relative;
+                color: var(--color-primary, #f1a33c);
+            }
+
+            /* Animation for word cycling */
+            @keyframes slideOutUp {
+                0% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes slideInUp {
+                0% {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            .rotating-word.slide-out {
+                animation: slideOutUp 0.4s ease-in forwards;
+            }
+
+            .rotating-word.slide-in {
+                animation: slideInUp 0.4s ease-out forwards;
+            }
+        </style>
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Snooze tabs, windows and todos for later. Includes preset times, custom date and time, todos tab, cloud syncing and more">
@@ -64,7 +111,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-5 d-flex" >
                         <div id="jumbotron-left" class="justify-content-center align-self-center">
-                            <h1>Snooze tabs, windows and todos for later</h1>
+                            <h1>Snooze or Save <span class="rotating-word-container"><span class="rotating-word">Tabs</span></span> for later</h1>
                             <p>
                                 Snooze tabs that you don’t want now, and set an alarm to bring them back when you need them. 
                             </p>  
@@ -328,7 +375,44 @@
             </div>
         </footer>    
 
-        <script src="index.js"></script> 
+        <script src="index.js"></script>
+
+        <!-- Animated hero text cycling -->
+        <script>
+            (function() {
+                const words = ['Tabs', 'Windows', 'Todos'];
+                let currentIndex = 0;
+                const wordElement = document.querySelector('.rotating-word');
+                const DISPLAY_DURATION = 2500; // How long each word stays visible
+                const ANIMATION_DURATION = 400; // Matches CSS animation duration
+
+                function cycleWord() {
+                    // Start slide out animation
+                    wordElement.classList.add('slide-out');
+
+                    setTimeout(function() {
+                        // Update to next word
+                        currentIndex = (currentIndex + 1) % words.length;
+                        wordElement.textContent = words[currentIndex];
+
+                        // Remove slide-out, add slide-in
+                        wordElement.classList.remove('slide-out');
+                        wordElement.classList.add('slide-in');
+
+                        setTimeout(function() {
+                            // Clean up slide-in class
+                            wordElement.classList.remove('slide-in');
+                        }, ANIMATION_DURATION);
+                    }, ANIMATION_DURATION);
+                }
+
+                // Start cycling after initial display
+                setTimeout(function() {
+                    setInterval(cycleWord, DISPLAY_DURATION);
+                }, DISPLAY_DURATION);
+            })();
+        </script>
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSHSSVMQ2K"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
