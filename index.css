@@ -218,7 +218,10 @@ nav ul li a{
 }
 #jumbotron-left ul li img.firefox-logo{
 	width: 38px;
-} 
+}
+#jumbotron-left ul li img.edge-logo{
+	width: 36px;
+}
 
 #jumbotron-right img {
 	width: 100%;
@@ -326,7 +329,10 @@ nav ul li a{
 }
 #download ul li img.firefox-logo{
 	width: 38px;
-} 
+}
+#download ul li img.edge-logo{
+	width: 36px;
+}
 
 .section {
 	margin: 150px 0;
